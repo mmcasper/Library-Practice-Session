@@ -1,17 +1,20 @@
 class Patron{
-    constructor(name, email, currentBook){
+    constructor(name, email){
         this.name = name;
         this.email = email;
-        this.currentBook = currentBook;
+        this.currentBook = null;
+        this.balance = 0;
     }
 
-    function checkOut() {
-
-
+    checkOut(book) {
+        this.currentBook = book;
+        book.out = true;
+        book.patron = this;
     }
 
-    function returnBook() {
-
+    returnBook(book) {
+        this.currentBook = null;
+        book.out = false;
+        book.dueDate = null;
     }
-
 }
